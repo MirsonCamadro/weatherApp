@@ -1,11 +1,11 @@
 import React from 'react';
+import Location from './Location';
+import WeatherData from './WeatherData';
 
 const WeatherLocation = () => (
-    <div>* Weatther Location *</div>
+    <div>
+        <Location city={"Talcahuano"}/>
+        <WeatherData/>
+    </div>
 );
-    var materials = ['1', '2', '3']
-    const mi_function = () => materials.length;
-    console.log(mi_function())
-
-
 export default WeatherLocation;
