@@ -1,6 +1,6 @@
 import React from 'react';
 import WeatherLocation from './components/WeatherLocation';
-import logo from './logo.svg';
+import logo from './pinkdots.svg';
 import './App.css';
 
 function App() {
