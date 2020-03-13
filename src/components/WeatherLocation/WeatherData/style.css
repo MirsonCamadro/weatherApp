@@ -1,0 +1,35 @@
+.weatherDataCont {
+    background-color: blue;
+    pointer-events: none;
+    width: 700px;
+    height: 100px;
+    line-height: 100px;
+}
+
+.weatherTemperaturaCont {
+    background-color: yellowgreen;
+    pointer-events: none;
+    width: 60%;
+    display: inline-block;
+}
+
+.weatherExtraInfoCont {
+    background-color: violet;
+    pointer-events: none;
+    width: 40%;
+    display: inline-block;
+}
+
+.temperature {
+    font-size: 30px;
+    font-weight: bold;
+    padding-left: 20px;
+    color: #333;
+}
+
+
+  /* @media (prefers-reduced-motion: no-preference) {
+    .weatherDataCont{
+      animation: App-logo-spin infinite 2s linear;
+    }
+  } */
