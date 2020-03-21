@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
+import convert from 'convert-units';
 import Location from './Location';
 import WeatherData from './WeatherData';
 import './style.css';
 import {
-    CLOUD,
-    CLOUDY, 
-    SUN,
     RAIN,
-    SNOW,
-    WINDY,
 } from './../../constants/weathers';
 
 const location = "Talcahuano,cl";
@@ -33,11 +29,42 @@ class WeatherLocation extends Component {
             data: data, 
         };
     };
+
+    getTemp = kelvin => {
+        return Number(
+            convert(kelvin).from("K").to("C").toFixed(2)
+            );        
+    };
+
+    getWeatherState = weather_data => {
+        return RAIN;
+    };
+
+    getData = weather_data => {
+        const { humidity, temp } = weather_data.main;
+        const { speed } = weather_data.wind;
+        const weatherState = this.getWeatherState(weather_data);
+        const temperature = this.getTemp(temp);
+
+        const data = {
+            humidity,
+            temperature,
+            weatherState,
+            wind: `${speed} m/s`,
+        }
+        return data;
+    }
+
     handdleUpdateClick = () => {
-        fetch(api_weather);
-        this.setState({
-            city: 'Otro Santiago'
-        })
+        fetch(api_weather).then( resolve => {
+            return resolve.json();
+        }).then(data => {
+            const newWeather = this.getData(data);
+            console.log(newWeather);
+            this.setState({
+                data: newWeather
+            })
+        });
     };
 
     render(){
