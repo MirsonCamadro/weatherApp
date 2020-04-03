@@ -31,22 +31,24 @@ class WeatherLocation extends Component {
             console.log(newWeather);
             this.setState({
                 data: newWeather
-            })
+            });
         });
     };
 
     render(){
-        const { city, data } = this.state 
-        return(
-            <div className="weatherLocationCont">
+        const { onWeatherLocationClick} = this.props;
+        const { city, data } = this.state;
+        return (
+            <div className="weatherLocationCont" onClick={onWeatherLocationClick}>
                 <Location city={city}/>
                 {data ? <WeatherData data = {data}/> : <CircularProgress/>}
             </div>
         );
-    }
+    };
 };
 
 WeatherLocation.propTypes = {
     city: PropTypes.string.isRequired,
+    onWeatherLocationClick: PropTypes.func,
 }
 export default WeatherLocation;
