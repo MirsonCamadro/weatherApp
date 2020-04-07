@@ -1,7 +1,8 @@
 import moment from 'moment';
+import 'moment/locale/es';
 import transformWeather from './transformWeather'
 
-const transformForeacast = data => (
+const transformForecast = data => (
     data.list.filter(item => (
         moment.unix(item.dt).hour() === 6 ||
         moment.unix(item.dt).hour() === 12 ||
@@ -15,4 +16,4 @@ const transformForeacast = data => (
     ))
 );
 
-export default transformForeacast;
+export default transformForecast;
