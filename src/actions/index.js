@@ -2,6 +2,7 @@ import transformForecast from './../services/transformForecast';
 
 export const SET_CITY = 'SET_CITY';
 export const SET_FORECAST_DATA = 'SET_FORECAST_DATA';
+export const SET_WEATHER = 'SET_WEATHER';
 
 const setCity = payload => ({ type: SET_CITY, payload });
 const setForecastData = payload => ({
@@ -31,4 +32,8 @@ export const setSelectedCity = payload => {
             }
         );
     };
+};
+
+export const setWeather = payload => {
+
 };
